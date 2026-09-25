@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0B0D10" />
+<meta name="description" content="Portfolio Phan Việt Hòa — Video Editor Executive chuyên TVC thương mại, podcast và AI Video." />
+<title>Phan Việt Hòa — Video Editor Executive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0B0D10;
+  --bg-elev:#14181D;
+  --ink:#F3EEE6;
+  --ink-dim:#A6ACB2;
+  --ink-faint:#82878D;
+  --amber:#D98E3F;
+  --amber-soft:#E9AE72;
+  --teal:#2F6F6C;
+  --teal-soft:#5B9793;
+  --line:rgba(243,238,230,0.12);
+  --line-strong:rgba(243,238,230,0.24);
+  --font-display:'Bebas Neue','Arial Narrow',sans-serif;
+  --font-body:'Be Vietnam Pro','Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --safe-t:env(safe-area-inset-top,0px);
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --header-h:76px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --bg:#0B0D10; --ink:#F3EEE6; }
+}
+:root[data-theme="dark"]{ --bg:#0B0D10; --ink:#F3EEE6; }
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--header-h) + var(--safe-t) + 12px);
+}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-weight:400;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  padding-top:var(--safe-t);
+  padding-bottom:var(--safe-b);
+  overflow-x:hidden;
+  position:relative;
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+a{ color:inherit; text-decoration:none; }
+img,svg{ max-width:100%; display:block; }
+:focus-visible{ outline:2px solid var(--amber-soft); outline-offset:3px; }
+
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:400; pointer-events:none;
+  opacity:0.035; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+body::after{
+  content:"";
+  position:fixed; inset:0; z-index:401; pointer-events:none; opacity:0.5;
+  background:repeating-linear-gradient(to bottom, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px);
+}
+
+.wrap{ max-width:1180px; margin:0 auto; padding:0 24px; }
+
+header{
+  position:sticky; top:0; z-index:300;
+  height:var(--header-h);
+  padding-top:var(--safe-t);
+  display:flex; align-items:center;
+  background:rgba(11,13,16,0.72);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s ease, background .3s ease;
+}
+header.scrolled{ border-bottom-color:var(--line); background:rgba(11,13,16,0.92); }
+header .wrap{ display:flex; align-items:center; justify-content:space-between; width:100%; }
+.logo{ display:flex; align-items:center; gap:8px; font-family:var(--font-display); font-size:1.35rem; letter-spacing:.04em; }
+.logo .dot{ width:7px; height:7px; border-radius:50%; background:var(--amber); animation:pulse 2.4s ease-in-out infinite; }
+.logo .bracket{ color:var(--ink-faint); }
+
+nav.primary-nav{ display:flex; align-items:center; gap:32px; }
+nav.primary-nav a{
+  font-size:.78rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-dim); position:relative; padding:6px 0;
+  transition:color .25s ease;
+}
+nav.primary-nav a::after{
+  content:""; position:absolute; left:0; right:100%; bottom:0; height:1px;
+  background:var(--amber-soft); transition:right .3s ease;
+}
+nav.primary-nav a:hover, nav.primary-nav a.active{ color:var(--ink); }
+nav.primary-nav a.active::after{ right:0; }
+
+.nav-toggle{ display:none; flex-direction:column; gap:5px; background:none; border:0; cursor:pointer; padding:8px; }
+.nav-toggle span{ width:22px; height:2px; background:var(--ink); display:block; }
+
+@media (max-width: 860px){
+  nav.primary-nav{
+    position:fixed; inset:var(--header-h) 0 0 0; padding-top:var(--safe-t);
+    background:var(--bg); flex-direction:column; justify-content:center; gap:28px;
+    transform:translateX(100%); transition:transform .35s ease;
+  }
+  nav.primary-nav.open{ transform:translateX(0); }
+  nav.primary-nav a{ font-size:1rem; }
+  .nav-toggle{ display:flex; }
+}
+
+.hero{
+  min-height:calc(100vh - var(--header-h));
+  min-height:calc(100svh - var(--header-h));
+  display:flex; align-items:center;
+  padding:56px 0 72px;
+  position:relative;
+}
+.hero .wrap{ display:grid; grid-template-columns:1.35fr 0.85fr; gap:64px; align-items:center; }
+@media (max-width:900px){ .hero .wrap{ grid-template-columns:1fr; gap:48px; } }
+
+.eyebrow-group{ display:flex; flex-wrap:wrap; gap:10px 18px; margin-bottom:22px; }
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-dim); border:1px solid var(--line-strong); padding:6px 12px;
+  opacity:0; animation:rise .7s ease forwards; animation-delay:.1s;
+}
+.eyebrow.alt{ color:var(--amber-soft); border-color:rgba(217,142,63,0.4); animation-delay:.22s; }
+.eyebrow.status{ color:#8FCB9B; border-color:rgba(143,203,155,0.35); animation-delay:.3s; }
+.dot-sm{ width:6px; height:6px; border-radius:50%; background:currentColor; display:inline-block; animation:pulse 2s ease-in-out infinite; }
+
+h1.headline{
+  font-family:var(--font-display);
+  font-size:clamp(3rem, 7.4vw, 6rem);
+  line-height:.92; letter-spacing:.005em;
+  margin:0 0 26px; text-transform:uppercase;
+  opacity:0; animation:rise .8s ease forwards; animation-delay:.34s;
+}
+.hero p.lede{
+  max-width:54ch; color:var(--ink-dim); font-size:1.06rem; line-height:1.7;
+  margin:0 0 34px;
+  opacity:0; animation:rise .8s ease forwards; animation-delay:.5s;
+}
+.cta-row{ display:flex; flex-wrap:wrap; gap:14px; opacity:0; animation:rise .8s ease forwards; animation-delay:.64s; }
+.btn{
+  font-size:.85rem; font-weight:700; letter-spacing:.04em; padding:15px 26px;
+  border:1px solid transparent; cursor:pointer; display:inline-block;
+  transition:transform .25s ease, background .25s ease, border-color .25s ease, color .25s ease;
+}
+.btn-primary{ background:var(--amber); color:#161005; }
+.btn-primary:hover{ background:var(--amber-soft); transform:translateY(-2px); }
+.btn-ghost{ border-color:var(--line-strong); color:var(--ink); }
+.btn-ghost:hover{ border-color:var(--teal-soft); color:var(--teal-soft); transform:translateY(-2px); }
+
+@keyframes rise{ from{ opacity:0; transform:translateY(16px);} to{ opacity:1; transform:translateY(0);} }
+@keyframes pulse{ 0%,100%{ opacity:1;} 50%{ opacity:.25;} }
+
+.id-card{
+  position:relative; background:var(--bg-elev); border:1px solid var(--line);
+  padding:38px 30px; opacity:0; animation:rise .9s ease forwards; animation-delay:.5s;
+}
+.id-card::before, .id-card::after{ content:""; position:absolute; width:20px; height:20px; }
+.id-card::before{ top:-1px; left:-1px; border-top:2px solid var(--amber-soft); border-left:2px solid var(--amber-soft); }
+.id-card::after{ bottom:-1px; right:-1px; border-bottom:2px solid var(--teal-soft); border-right:2px solid var(--teal-soft); }
+.id-card .kicker{ font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:18px; }
+.id-card .initials{ font-family:var(--font-display); font-size:5rem; line-height:1; letter-spacing:.02em; margin:0 0 14px; }
+.id-card .quote{ font-size:.86rem; color:var(--ink-dim); line-height:1.6; margin:0 0 18px; font-style:italic; }
+.id-card .name{ font-size:1.15rem; font-weight:700; margin-bottom:4px; }
+.id-card .role{ font-size:.85rem; color:var(--ink-dim); margin-bottom:18px; }
+.id-card .meta{ display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:16px; }
+.id-card .loc{ font-size:.72rem; letter-spacing:.08em; color:var(--ink-faint); text-transform:uppercase; }
+.rec{ display:flex; align-items:center; gap:6px; font-family:var(--font-display); font-size:.78rem; letter-spacing:.06em; color:var(--amber-soft); }
+.rec .dot{ width:7px; height:7px; border-radius:50%; background:#E4553F; animation:pulse 1.6s ease-in-out infinite; }
+
+.chapter{ padding:108px 0; border-top:1px solid var(--line); }
+.chapter-head{ display:flex; gap:22px; align-items:baseline; margin-bottom:20px; }
+.chapter-num{ font-family:var(--font-display); font-size:1.1rem; letter-spacing:.06em; color:var(--amber-soft); white-space:nowrap; }
+h2.chapter-title{ font-size:clamp(1.7rem,3.2vw,2.5rem); font-weight:800; margin:0; }
+.chapter-lede{ max-width:64ch; color:var(--ink-dim); margin:0 0 0; }
+
+.stat-row{ display:flex; flex-wrap:wrap; margin:40px 0 52px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.stat{ flex:1 1 160px; padding:22px 24px 22px 0; }
+.stat + .stat{ border-left:1px solid var(--line); padding-left:24px; }
+.stat .num{ font-family:var(--font-display); font-size:2.5rem; line-height:1; color:var(--amber-soft); }
+.stat .label{ font-size:.8rem; color:var(--ink-dim); margin-top:6px; }
+
+.sub-label{ font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 16px; }
+.sub-label.spaced{ margin-top:48px; }
+
+.tool-row{ display:flex; flex-wrap:wrap; gap:10px; }
+.tool-chip{ display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line-strong); padding:9px 15px; font-size:.86rem; font-weight:600; }
+.tool-chip .ic{ font-family:var(--font-display); color:var(--amber-soft); font-size:.9rem; }
+
+.skills-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+@media (max-width:760px){ .skills-grid{ grid-template-columns:repeat(2,1fr); } }
+.skill-card{ background:var(--bg); padding:26px 22px; transition:background .25s ease; }
+.skill-card:hover{ background:var(--bg-elev); }
+.skill-card .tool{ font-weight:700; font-size:1rem; margin-bottom:6px; }
+.skill-card .desc{ font-size:.84rem; color:var(--ink-dim); }
+
+.soft-row{ display:flex; flex-wrap:wrap; gap:8px; }
+
+.timeline{ position:relative; padding-left:28px; border-left:1px solid var(--line); }
+.tl-item{ position:relative; padding-bottom:52px; }
+.tl-item:last-child{ padding-bottom:0; }
+.tl-item::before{
+  content:""; position:absolute; left:-33px; top:4px; width:10px; height:10px; border-radius:50%;
+  background:var(--bg); border:2px solid var(--amber-soft);
+}
+.tl-item.current::before{ background:var(--amber-soft); }
+.tl-item.edu::before{ border-color:var(--teal-soft); }
+.tl-date{ font-family:var(--font-display); font-size:.85rem; letter-spacing:.08em; color:var(--ink-faint); margin-bottom:6px; }
+.tl-item.current .tl-date{ color:var(--amber-soft); }
+.tl-role{ font-size:1.2rem; font-weight:700; margin-bottom:2px; }
+.tl-org{ font-size:.92rem; color:var(--teal-soft); margin-bottom:12px; }
+.tl-desc{ color:var(--ink-dim); max-width:64ch; margin-bottom:14px; }
+.tag-row{ display:flex; flex-wrap:wrap; gap:8px; }
+.tag{ font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-dim); border:1px solid var(--line-strong); padding:5px 10px; }
+
+.filter-row{ display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; margin-bottom:40px; scrollbar-width:none; }
+.filter-row::-webkit-scrollbar{ display:none; }
+.filter-btn{
+  flex:none; background:none; border:1px solid var(--line-strong); color:var(--ink-dim);
+  font-size:.78rem; font-weight:600; letter-spacing:.05em; padding:10px 16px; cursor:pointer;
+  white-space:nowrap; transition:all .25s ease;
+}
+.filter-btn:hover{ color:var(--ink); border-color:var(--ink-faint); }
+.filter-btn.active{ background:var(--ink); color:var(--bg); border-color:var(--ink); }
+
+.work-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+@media (max-width:920px){ .work-grid{ grid-template-columns:repeat(2,1fr);} }
+@media (max-width:600px){ .work-grid{ grid-template-columns:1fr;} }
+.work-card.hide{ display:none; }
+.thumb{
+  position:relative; aspect-ratio:4/5; margin-bottom:14px; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--line);
+}
+.thumb.g1{ background:linear-gradient(135deg,#3a2414,#1a2e2c 65%); }
+.thumb.g2{ background:linear-gradient(135deg,#1c2f2d,#2c1c10 65%); }
+.thumb .grid-overlay{
+  position:absolute; inset:0;
+  background-image:linear-gradient(rgba(243,238,230,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(243,238,230,.05) 1px,transparent 1px);
+  background-size:20px 20px;
+}
+.play{ width:52px; height:52px; border-radius:50%; border:1px solid rgba(243,238,230,.55); display:flex; align-items:center; justify-content:center; transition:transform .3s ease, border-color .3s ease; }
+.play::after{ content:""; width:0; height:0; margin-left:4px; border-top:9px solid transparent; border-bottom:9px solid transparent; border-left:14px solid var(--ink); }
+.work-card:hover .play{ transform:scale(1.08); border-color:var(--amber-soft); }
+.thumb .demo-tag{ position:absolute; top:10px; left:10px; font-size:.62rem; letter-spacing:.1em; color:var(--ink-faint); border:1px solid var(--line-strong); padding:3px 7px; background:rgba(11,13,16,.5); }
+.thumb[data-drive-id]:not([data-drive-id=""]) .demo-tag{ display:none; }
+.thumb[data-drive-id]:not([data-drive-id=""]){ cursor:pointer; }
+.thumb iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+.work-eyebrow{ font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:5px; }
+.work-title{ font-weight:700; margin-bottom:4px; }
+.work-sub{ font-size:.85rem; color:var(--ink-dim); line-height:1.55; }
+
+.contact-box{ background:var(--bg-elev); border:1px solid var(--line); padding:56px 44px; }
+@media (max-width:640px){ .contact-box{ padding:38px 24px; } }
+.contact-box h3{ font-size:clamp(1.6rem,3.6vw,2.4rem); margin:0 0 16px; font-weight:800; }
+.contact-box p{ color:var(--ink-dim); max-width:58ch; margin:0 0 34px; }
+.contact-links{ display:flex; flex-wrap:wrap; gap:32px 36px; margin-bottom:14px; }
+.contact-links a{ font-family:var(--font-display); font-size:1.32rem; letter-spacing:.02em; border-bottom:1px solid var(--line-strong); padding-bottom:4px; transition:border-color .25s ease, color .25s ease; }
+.contact-links a:hover{ color:var(--amber-soft); border-color:var(--amber-soft); }
+.contact-note{ font-size:.76rem; color:var(--ink-faint); }
+
+footer{ padding:36px 0 calc(36px + var(--safe-b)); border-top:1px solid var(--line); }
+footer .wrap{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; font-size:.78rem; color:var(--ink-faint); }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="#home" class="logo"><span class="dot"></span><span class="bracket">[</span>PVH<span class="bracket">]</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="primary-nav" id="primaryNav">
+      <a href="#about">Giới Thiệu</a>
+      <a href="#experience">Hành Trình</a>
+      <a href="#work">Dự Án</a>
+      <a href="#contact">Liên Hệ</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow-group">
+        <span class="eyebrow">Video Editor Executive</span>
+        <span class="eyebrow alt">3+ Năm Kinh Nghiệm</span>
+        <span class="eyebrow status"><span class="dot-sm"></span>Đang Tìm Việc</span>
+      </div>
+      <h1 class="headline">Motion,<br>Made Believable.</h1>
+      <p class="lede">"Với niềm đam mê kể chuyện bằng hình ảnh, tôi mang đến những sản phẩm đầy ấn tượng — giúp thương hiệu chạm đến trái tim khán giả." Hơn 3 năm kinh nghiệm tại Thế Giới Điện Giải Group, song song xây dựng quy trình AI Video từ khâu viết prompt đến hậu kỳ hoàn thiện.</p>
+      <div class="cta-row">
+        <a href="#work" class="btn btn-primary">Xem Dự Án</a>
+        <a href="#contact" class="btn btn-ghost">Liên Hệ Hợp Tác</a>
+      </div>
+    </div>
+    <div class="id-card">
+      <div class="kicker">Hồ Sơ Thị Giác</div>
+      <div class="initials">PVH</div>
+      <div class="name">Phan Việt Hòa</div>
+      <div class="role">Video Editor Executive</div>
+      <div class="meta">
+        <span class="loc">Quận 8, TP. Hồ Chí Minh</span>
+        <span class="rec"><span class="dot"></span>REC</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="about">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="chapter-num">00:01</span>
+      <h2 class="chapter-title">Giới Thiệu</h2>
+    </div>
+    <p class="chapter-lede">Từ quảng cáo sản phẩm cho các thương hiệu lớn như Panasonic, Fujiiryoki, Enagic đến podcast, talkshow và khóa học trực tuyến — không ngừng học công nghệ mới để mang lại giá trị thực sự cho mỗi sản phẩm, song song trực tiếp xây dựng quy trình sản xuất video bằng AI.</p>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num">200+</div><div class="label">Video Đã Biên Tập</div></div>
+      <div class="stat"><div class="num">3+</div><div class="label">Năm Kinh Nghiệm</div></div>
+      <div class="stat"><div class="num">10+</div><div class="label">Thương Hiệu Đã Hợp Tác</div></div>
+    </div>
+
+    <div class="sub-label">Công Cụ</div>
+    <div class="tool-row">
+      <span class="tool-chip"><span class="ic">Pr</span>Premiere Pro</span>
+      <span class="tool-chip"><span class="ic">Ae</span>After Effects</span>
+      <span class="tool-chip"><span class="ic">Ps</span>Photoshop</span>
+      <span class="tool-chip"><span class="ic">Ai</span>Illustrator</span>
+      <span class="tool-chip"><span class="ic">✂</span>CapCut</span>
+      <span class="tool-chip"><span class="ic">◈</span>Canva</span>
+    </div>
+
+    <div class="sub-label spaced">Năng Lực Chuyên Môn</div>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="tool">Biên Tập &amp; Dựng Phim</div><div class="desc">Cắt ghép, nhịp điệu, narrative editing</div></div>
+      <div class="skill-card"><div class="tool">Motion Graphics</div><div class="desc">Animation, kiểu chữ động, lower thirds</div></div>
+      <div class="skill-card"><div class="tool">Color Grading</div><div class="desc">Chỉnh màu điện ảnh, skin tone, LUT</div></div>
+      <div class="skill-card"><div class="tool">Chỉnh Sửa Âm Thanh</div><div class="desc">Noise reduction, mixing, SFX</div></div>
+      <div class="skill-card"><div class="tool">Social Media Content</div><div class="desc">Reels, Shorts, TikTok, Story format</div></div>
+      <div class="skill-card"><div class="tool">Setup Quay &amp; Sản Xuất</div><div class="desc">Bối cảnh, ánh sáng, thiết bị video</div></div>
+    </div>
+
+    <div class="sub-label spaced">Kỹ Năng Mềm</div>
+    <div class="soft-row">
+      <span class="tag">Quản Lý Thời Gian</span>
+      <span class="tag">Làm Việc Nhóm</span>
+      <span class="tag">Tư Duy Phản Biện</span>
+      <span class="tag">Khả Năng Thẩm Mỹ</span>
+      <span class="tag">Kỹ Năng Giao Tiếp</span>
+      <span class="tag">Tính Chủ Động</span>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="experience">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="chapter-num">00:02</span>
+      <h2 class="chapter-title">Hành Trình</h2>
+    </div>
+    <p class="chapter-lede">Hành trình từ những dự án tự do đầu tiên đến vai trò Video Editor Executive hiện tại.</p>
+    <div class="timeline" style="margin-top:52px;">
+      <div class="tl-item current">
+        <div class="tl-date">03.2025 — Hiện Tại</div>
+        <div class="tl-role">Video Editor Executive</div>
+        <div class="tl-org">Thế Giới Điện Giải Group</div>
+        <p class="tl-desc">Dựng video quảng cáo sản phẩm cho các thương hiệu Well The One, Fuji Smart, Panasonic, Fujiiryoki, Enagic. Sản xuất và biên tập podcast The House Talk. Dựng video recap sự kiện và nội dung truyền thông phục vụ marketing.</p>
+        <div class="tag-row"><span class="tag">Quảng Cáo Sản Phẩm</span><span class="tag">Podcast</span><span class="tag">Event Recap</span><span class="tag">Brand Content</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2023 — Nay</div>
+        <div class="tl-role">Video Editor</div>
+        <div class="tl-org">Freelancer</div>
+        <p class="tl-desc">Dựng video podcast Dustin On The Go. Biên tập recap sự kiện Gigabyte, FindingSchool, video chuyên gia Prudential và một số lĩnh vực khác.</p>
+        <div class="tag-row"><span class="tag">E-Learning</span><span class="tag">Podcast</span><span class="tag">Talkshow</span><span class="tag">Corporate</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2022 — 2024</div>
+        <div class="tl-role">Video Editor Executive</div>
+        <div class="tl-org">VTC Academy</div>
+        <p class="tl-desc">Biên tập video học trực tuyến, podcast và talkshow. Sản xuất và biên tập hơn 200 video trong môi trường đào tạo chuyên nghiệp, tích lũy nền tảng vững chắc về quy trình hậu kỳ và production.</p>
+        <div class="tag-row"><span class="tag">Educational Content</span><span class="tag">Production Pipeline</span><span class="tag">Post-Production</span></div>
+      </div>
+      <div class="tl-item edu">
+        <div class="tl-date">2019 — 2023</div>
+        <div class="tl-role">🎓 Cử Nhân Tâm Lý Học</div>
+        <div class="tl-org">Trường Đại Học Sư Phạm TP. Hồ Chí Minh</div>
+        <p class="tl-desc">Khoa Tâm Lý Học. Tốt nghiệp Cử nhân năm 2023.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="work">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="chapter-num">00:03</span>
+      <h2 class="chapter-title">Dự Án</h2>
+    </div>
+    <p class="chapter-lede">Tuyển chọn từ portfolio thực tế.</p>
+    <!-- Để phát video thật: mở file trên Google Drive → Chia sẻ → "Anyone with the link" (Viewer),
+         copy đoạn ID trong link (giữa /d/ và /view), rồi dán vào data-drive-id="" của .thumb tương ứng bên dưới.
+         Bấm nút play trên trang sẽ tự nhúng video Drive vào đúng khung đó. -->
+    <div class="filter-row" id="filterRow" style="margin-top:40px;">
+      <button class="filter-btn active" data-filter="all">Tất Cả</button>
+      <button class="filter-btn" data-filter="brand">Thương Hiệu</button>
+      <button class="filter-btn" data-filter="podcast">Podcast</button>
+      <button class="filter-btn" data-filter="other">Giáo Dục &amp; Corporate</button>
+    </div>
+    <div class="work-grid" id="workGrid">
+      <div class="work-card" data-cat="brand"><div class="thumb g1" data-drive-id=""><div class="grid-overlay"></div><span class="demo-tag">Demo</span><div class="play"></div></div><div class="work-eyebrow">Thương Hiệu · Quảng Cáo</div><div class="work-title">Video Commercial</div><div class="work-sub">Dựng video quảng cáo sản phẩm cho các thương hiệu điện tử Nhật Bản và quốc tế — tập trung vào storytelling sản phẩm, tăng nhận diện thương hiệu và chuyển đổi khách hàng trên đa nền tảng digital.</div></div>
+      <div class="work-card" data-cat="podcast"><div class="thumb g2" data-drive-id=""><div class="grid-overlay"></div><span class="demo-tag">Demo</span><div class="play"></div></div><div class="work-eyebrow">Podcast · Series</div><div class="work-title">The House Talk Podcast</div><div class="work-sub">Biên tập podcast video cho Thế Giới Điện Giải Group — motion graphics, lower thirds và âm thanh chuyên nghiệp.</div></div>
+      <div class="work-card" data-cat="podcast"><div class="thumb g1" data-drive-id=""><div class="grid-overlay"></div><span class="demo-tag">Demo</span><div class="play"></div></div><div class="work-eyebrow">Podcast · Cá Nhân</div><div class="work-title">Dustin On The Go</div><div class="work-sub">Biên tập podcast cá nhân dạng video — format chuyên môn, màu sắc nhất quán theo brand identity.</div></div>
+      <div class="work-card" data-cat="other"><div class="thumb g2" data-drive-id=""><div class="grid-overlay"></div><span class="demo-tag">Demo</span><div class="play"></div></div><div class="work-eyebrow">Giáo Dục · E-learning</div><div class="work-title">Video Học Trực Tuyến</div><div class="work-sub">Biên tập video khóa học online — phối hợp cùng team creative phát triển nội dung giáo dục.</div></div>
+      <div class="work-card" data-cat="other"><div class="thumb g1" data-drive-id=""><div class="grid-overlay"></div><span class="demo-tag">Demo</span><div class="play"></div></div><div class="work-eyebrow">Event · Corporate</div><div class="work-title">Recap Event</div><div class="work-sub">Biên tập video recap sự kiện hướng nghiệp Gigabyte và chương trình du học FindingSchool.</div></div>
+      <div class="work-card" data-cat="other"><div class="thumb g2" data-drive-id=""><div class="grid-overlay"></div><span class="demo-tag">Demo</span><div class="play"></div></div><div class="work-eyebrow">Chuyên Gia · Corporate</div><div class="work-title">Video Chuyên Gia</div><div class="work-sub">Biên tập video chuyên gia bảo hiểm với format nội dung chuyên môn cao, thể hiện uy tín và chuyên nghiệp.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="contact">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="chapter-num">00:04</span>
+      <h2 class="chapter-title">Liên Hệ</h2>
+    </div>
+    <div class="contact-box">
+      <h3>Sẵn Sàng Cho Cơ Hội Mới</h3>
+      <p>Đang mở cho các cơ hội toàn thời gian, sẵn sàng bắt đầu sớm. Liên hệ để trao đổi về dự án TVC, Video Commercial hoặc AI Video Pipeline.</p>
+      <div class="contact-links">
+        <a href="mailto:phanviethoa2608@gmail.com">phanviethoa2608@gmail.com</a>
+        <a href="tel:0333511180">0333 511 180</a>
+        <a href="https://linkedin.com/in/phanviethoa" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <div class="contact-note">Quận 8, TP. Hồ Chí Minh</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Phan Việt Hòa. Đã giữ mọi quyền.</span>
+    <span>Video Editor Executive — TP. Hồ Chí Minh</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive:true });
+
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('primaryNav');
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true':'false');
+  });
+  Array.prototype.forEach.call(nav.querySelectorAll('a'), function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
+  });
+
+  var sectionIds = ['about','experience','work','contact'];
+  var sections = sectionIds.map(function(id){ return document.getElementById(id); });
+  var navLinks = Array.prototype.slice.call(nav.querySelectorAll('a'));
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          navLinks.forEach(function(l){ l.classList.toggle('active', l.getAttribute('href') === '#'+entry.target.id); });
+        }
+      });
+    }, { rootMargin:'-45% 0px -50% 0px' });
+    sections.forEach(function(s){ if(s) obs.observe(s); });
+  }
+
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('.work-card');
+  function applyFilter(f){
+    Array.prototype.forEach.call(cards, function(c){
+      c.classList.toggle('hide', f!=='all' && c.getAttribute('data-cat')!==f);
+    });
+  }
+  Array.prototype.forEach.call(filterBtns, function(btn){
+    btn.addEventListener('click', function(){
+      Array.prototype.forEach.call(filterBtns, function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyFilter(btn.getAttribute('data-filter'));
+    });
+  });
+
+  Array.prototype.forEach.call(filterBtns, function(btn){
+    var f = btn.getAttribute('data-filter');
+    var count = f==='all' ? cards.length : document.querySelectorAll('.work-card[data-cat="'+f+'"]').length;
+    btn.textContent = btn.textContent + ' (' + count + ')';
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.thumb'), function(thumb){
+    thumb.addEventListener('click', function(){
+      var id = thumb.getAttribute('data-drive-id');
+      if(!id) return;
+      thumb.innerHTML = '<iframe src="https://drive.google.com/file/d/'+id+'/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>';
+    });
+  });
+})();
+</script>
+</body>
+</html>
