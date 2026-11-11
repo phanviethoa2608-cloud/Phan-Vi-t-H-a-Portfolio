@@ -1,0 +1,6 @@
+{
+  "name": "AI Video Studio - Hybrid Free Image Search & Voice Sync",
+  "description": "Studio video AI với tìm kiếm ảnh đa nguồn (Openverse, Wikimedia, Pixabay, Google Images fallback), AI Vision đối soát nội dung, đồng bộ voice chính xác và phân tách câu chính phụ rõ ràng.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
